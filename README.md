@@ -39,7 +39,7 @@ A Lightning Web Component fills a crossword grid using a classic backtracking se
 
 A custom Apex-hosted MCP server exposes seven single-object tools, deliberately scoped so the model has to discover each tool and compose them to get out of the room. State is threaded between calls as an encrypted token, so the server holds no session and the reasoning lives entirely in the model (here, Claude as the MCP client). Because the tool descriptions can be made more or less guiding, the project doubles as an instrument for observing how a model copes with rising ambiguity — and for contrasting that probabilistic behavior against a strictly deterministic client running a fixed script.
 
-![The path Claude reasons through to escape the room](assets/escape-room-path.png)
+![The path Claude reasons through to escape the room](assets/escape-room-path.svg)
 
 ![Architecture: one Apex MCP server exposing seven single-object tools, with encrypted state threaded back to the client each call](assets/escape-room-architecture.svg)
 
