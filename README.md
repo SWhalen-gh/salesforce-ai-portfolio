@@ -13,7 +13,7 @@ Four independent projects showing hands-on work across the building blocks of en
 
 ## Polymarket narrative — RAG over Data Cloud
 
-An Apex scheduled job polls the Polymarket API hourly and posts each batch into Data 360 as a time-series of text records annotated with numeric metrics. When prompted by a user via Agentforce, the records matching a date filter are retrieved and handed to the Prompt Template as RAG context; the model reads the deltas between metric snapshots to decide which parts of the story to foreground, producing a narrative summary weighted by what actually moved. It's an example of RAG fron a Data Cloud store, with retrieval scoped by a time window.
+An Apex scheduled job polls the Polymarket API hourly and posts each batch into Data 360 as a time-series of text records annotated with numeric metrics. When prompted by a user via Agentforce, the records matching a date filter are retrieved and handed to the Prompt Template as RAG context; the model reads the deltas between metric snapshots to decide which parts of the story to foreground, producing a narrative summary weighted by what actually moved. It's an example of RAG from a Data Cloud store, with retrieval scoped by a time window.
 
 ![Agentforce delivering a metric-weighted economic narrative summary](assets/polymarket-narrative.png)
 
