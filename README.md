@@ -51,7 +51,7 @@ A custom Apex-hosted MCP server exposes seven single-object tools, deliberately 
 
 ## Letter Boxed solver — Agentforce over a SQL solver
 
-Agentforce sits between the player and a large SQL query that solves the NYT Letter Boxed puzzle against a ~300,000-word dictionary held in Data 360. The agent turns the player's input into the query, returns a solution, and then stays in the conversation — once solved, the user can ask for definitions or usage and get them back in natural language. The division of labor is the point: Agentforce owns the natural-language edge while the heavy combinatorial work stays in deterministic SQL.
+Agentforce sits between the player and a large SQL query that solves the NYT Letter Boxed puzzle against a ~300,000-word dictionary held in Data 360. The agent turns the player's input into a parameter object, returns a solution, and then stays in the conversation. After the solution is returned, the user can ask for definitions or usage and get them back in natural language. Agentforce owns the natural-language UX while the word serach is done with Apex and SQL.
 
 ![Agentforce solving a Letter Boxed puzzle, then defining a word from the solution](assets/letterboxed-solver.png)
 
