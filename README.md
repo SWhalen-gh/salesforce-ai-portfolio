@@ -1,7 +1,7 @@
 # Salesforce &amp; Agentforce AI Portfolio
 
 <!-- Replace with your name and contact line -->
-**[Your Name]** — Salesforce engineering leader, ~10 years on the platform
+Sean Whalen— Salesforce engineering leader, ~10 years on the platform
 
 Four independent projects showing hands-on work across the building blocks of enterprise conversational AI on Salesforce: **Agentforce**, **Data Cloud / Data 360**, **Model Context Protocol (MCP)**, and **Retrieval-Augmented Generation (RAG)**. Each pairs a deterministic engine with an LLM at the natural-language edge — the architecture pattern behind reliable enterprise AI.
 
@@ -13,7 +13,7 @@ Four independent projects showing hands-on work across the building blocks of en
 
 ## Polymarket narrative — RAG over Data Cloud
 
-An Apex scheduled job polls the Polymarket API hourly and lands each pull in Data 360 as a time-series of text records annotated with numeric metrics. On a query, the records matching a date filter are retrieved and handed to the model as RAG context; the model reads the deltas between metric snapshots to decide which parts of the story to foreground, producing a narrative summary weighted by what actually moved. It's a concrete case of RAG over a governed Data Cloud store, with retrieval scoped by time rather than by similarity alone.
+An Apex scheduled job polls the Polymarket API hourly and posts each batch into Data 360 as a time-series of text records annotated with numeric metrics. When prompted by a user via Agentforce, the records matching a date filter are retrieved and handed to the Prompt Template as RAG context; the model reads the deltas between metric snapshots to decide which parts of the story to foreground, producing a narrative summary weighted by what actually moved. It's an example of RAG fron a Data Cloud store, with retrieval scoped by a time window.
 
 ![Agentforce delivering a metric-weighted economic narrative summary](assets/polymarket-narrative.png)
 
@@ -25,7 +25,7 @@ An Apex scheduled job polls the Polymarket API hourly and lands each pull in Dat
 
 ## Crossword generator (LWC) — procedural engine + Prompt Template clues
 
-A Lightning Web Component fills a crossword grid using a classic backtracking search: placing words, detecting conflicts, and unwinding when a branch fails. Alongside the grid, a Salesforce Prompt Template generates clues for the placed words, tuned to characteristics the user selects, so the same answer can be clued plain or cryptic, easy or whimsical. One screen, two halves — the procedural engine does the puzzle, the model does the language.
+A Lightning Web Component fills a crossword grid using a classic backtracking search: placing words, detecting conflicts, and unwinding when a branch fails. Alongside the grid, a Salesforce Prompt Template generates clues for the placed words, tuned to characteristics the user selects, so the same answer can be clued plain or cryptic, easy or whimsical. One LWC with two technologies: the procedural engine does the puzzle and the LLM does the language.
 
 ![Crossword LWC: solved grid on the left, generated clues and difficulty/whimsy controls on the right](assets/crossword-lwc.png)
 
@@ -37,7 +37,7 @@ A Lightning Web Component fills a crossword grid using a classic backtracking se
 
 ## MCP Escape Room — agentic tool use on Salesforce
 
-A custom Apex-hosted MCP server exposes seven single-object tools, deliberately scoped so the model has to discover each tool and compose them to get out of the room. State is threaded between calls as an encrypted token, so the server holds no session and the reasoning lives entirely in the model (here, Claude as the MCP client). Because the tool descriptions can be made more or less guiding, the project doubles as an instrument for observing how a model copes with rising ambiguity — and for contrasting that probabilistic behavior against a strictly deterministic client running a fixed script.
+A custom Apex-hosted MCP server exposes seven single-object tools, deliberately scoped so the LLM has to discover each tool and leverage them to get out of the room. State is threaded between calls as an encrypted token, so the server holds no session and the reasoning lives entirely in the model (here, Claude as the MCP client). Because the tool descriptions can be made more or less guiding, the project doubles as an instrument for observing how a model copes with rising ambiguity — and for contrasting that probabilistic behavior against a strictly deterministic client running a fixed script.
 
 ![The path Claude reasons through to escape the room](assets/escape-room-path.svg)
 
