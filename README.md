@@ -38,7 +38,7 @@ A Lightning Web Component fills a crossword grid using a classic backtracking se
 
 ## MCP Escape Room — agentic tool use on Salesforce
 
-A custom MCP server hosted in Salesforce that exposes seven tools implemented in Apex. The tools in the room are organized so the LLM client must discover each tool and leverage them all to get out of the room. State is communicated between calls as an encrypted token, so the server holds no session. Because the tool descriptions can be written to be clear or vague, the project can be used to observe how a model copes with different levels of ambiguity. Contrasting an LLM's probabilistic behavior against a strictly deterministic client running a fixed script is natural.
+A custom MCP server hosted in Salesforce that exposes seven tools implemented in Apex. The tools in the room are organized so the LLM client must discover each one and leverage them all to escape. State is communicated between calls as an encrypted token, so the server holds no session. Because the tool descriptions can be written to be clear or vague, the project can be used to observe how a model copes with different levels of ambiguity. It also provides a natural way to contrast an LLM’s probabilistic behavior with that of a strictly deterministic client running a fixed script.
 
 ![The path Claude reasons through to escape the room](assets/escape-room-path.svg)
 
