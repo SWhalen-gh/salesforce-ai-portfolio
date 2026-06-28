@@ -1,20 +1,19 @@
 # Salesforce &amp; Agentforce AI Portfolio
 
 <!-- Replace with your name and contact line -->
-Sean Whalen— Salesforce engineering leader, ~10 years on the platform
+Sean Whalen Salesforce engineering leader, ~10 years on the platform
 
-Four independent projects demonstrating conversational AI on Salesforce: **Agentforce**, **Data Cloud / Data 360**, **Model Context Protocol (MCP)**, and **Retrieval-Augmented Generation (RAG)**. Each example comnbines a deterministic Apex or query engine with an LLM. The business logic is encapsulated, reusable, and testable. From the use's perspective the underlying technologies disappear.  
-
+Four independent projects demonstrating conversational AI on Salesforce: **Agentforce**, **Data Cloud / Data 360**, **Model Context Protocol (MCP)**, and **Retrieval-Augmented Generation (RAG)**. Each example combines a deterministic Apex or query engine with an LLM. The business logic is encapsulated, reusable, and testable. From the user's perspective, the underlying technologies disappear.  
  
 **Selected certifications** · Salesforce Platform Developer I · Agentforce Specialist · Agentforce Associate
 
-> These are independent, personal projects in a Salesforce developer org. They exist to demonstrate AI capabilitie at different layers of Salesforce.
+> These are independent, personal projects in a Salesforce developer org. They exist to demonstrate AI capabilities at different layers of Salesforce.
 
 ---
 
 ## Polymarket narrative — RAG over Data Cloud
 
-An Apex scheduled job polls the Polymarket API hourly and posts each batch into Data 360 as time-series records containing text annotated with numeric metrics. When prompted by a user via Agentforce, the records matching a date filter are retrieved and handed to the Prompt Template as RAG context; the model reads the deltas between metric snapshots to decide which parts of the story to emphasize, producing a narrative summary weighted by what actually moved. It's an example of RAG from a Data Cloud store, with retrieval scoped by a time window.
+An Apex scheduled job polls the Polymarket API hourly and posts each batch into Data 360 as time-series records containing text annotated with numeric metrics. When prompted by a user via Agentforce, the records matching a date filter are retrieved and handed to the Prompt Template as RAG context; the LLM understands the deltas between snapshots and decides which parts of the story to emphasize, producing a narrative summary weighted by what actually moved. It's an example of RAG from a Data Cloud store, with retrieval scoped by a time window.
 
 ![Agentforce delivering a metric-weighted economic narrative summary](assets/polymarket-narrative.png)
 
@@ -38,7 +37,7 @@ A Lightning Web Component fills a crossword grid using a classic backtracking se
 
 ## MCP Escape Room — agentic tool use on Salesforce
 
-A custom MCP server hosted in Salesforce that exposes seven tools implemented in Apex. The tools in the room are organized so the LLM client must discover each one and leverage them all to escape. State is communicated between calls as an encrypted token, so the server holds no session. Because the tool descriptions can be written to be clear or vague, the project can be used to observe how a model copes with different levels of ambiguity. It also provides a natural way to contrast an LLM’s probabilistic behavior with that of a strictly deterministic client running a fixed script.
+A custom MCP server hosted in Salesforce that exposes seven tools implemented in Apex. The tools in the room are organized so the LLM client must discover each one and leverage them all to escape. State is communicated between calls as an encrypted token, so the server holds no session. Because the tool descriptions can be written to be clear or vague, the project can be used to observe how an LLM copes with different levels of ambiguity. It also provides a natural way to contrast an LLM’s probabilistic behavior with that of a strictly deterministic client running a fixed script.
 
 ![The path Claude reasons through to escape the room](assets/escape-room-path.svg)
 
@@ -52,7 +51,7 @@ A custom MCP server hosted in Salesforce that exposes seven tools implemented in
 
 ## Letter Boxed solver — Agentforce over a SQL solver
 
-Agentforce sits between the player and a large SQL query that solves the NYT Letter Boxed puzzle against a ~300,000-word dictionary held in Data 360. The agent turns the player's input into a parameter object, returns a solution, and then stays in the conversation. After the solution is returned, the user can ask for definitions or usage and get them back in natural language. Agentforce owns the natural-language UX while the word serach is done with Apex and SQL.
+Agentforce sits between the player and a large SQL query that solves the NYT Letter Boxed puzzle against a ~300,000-word dictionary held in Data 360. The agent turns the player's input into a parameter object, returns a solution, and then stays in the conversation. After the solution is returned, the user can ask for definitions or usage and get them back in natural language. Agentforce owns the natural-language UX while the word search is done with Apex and SQL.
 
 ![Agentforce solving a Letter Boxed puzzle, then defining a word from the solution](assets/letterboxed-solver.png)
 
